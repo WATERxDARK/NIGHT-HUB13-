@@ -1,0 +1,21 @@
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/kickTh/New-Ui/main/discord%20lib%20(1).txt")()
+
+local win = DiscordLib:Window("NIGHT HUB")
+
+local serv = win:Server("Main", "")
+
+local btns = serv:Channel("Main")
+
+btns:Button("InfiniteJump", function()
+
+local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+end)
+
+btns:Button("WalkSpeed", function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+end)
